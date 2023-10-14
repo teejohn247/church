@@ -1,36 +1,21 @@
 
 import dotenv from 'dotenv';
-import Admin from '../../model/FirstTimers';
-import bcrypt from 'bcrypt';
-import utils from '../../config/utils';
+import Admin from '../../model/converts';
 import Cell from '../../model/Cell';
 import Zone from '../../model/Zones';
 
 
 dotenv.config();
 
-
-const createFirstTimers = async (req, res) => {
+const createConvert = async (req, res) => {
 
     try {
 
-        const { name, address, email, age_range, bad_comment, date_of_first_visit, category,  education_level, gender, phone, prayer_request, date_of_birth
-        , cell, zone } = req.body;
+        const { name, address, date_of_new_convert, phone, cell, zone } = req.body;
 
+        console.log(name, address, date_of_new_convert)
         let zones = await Zone.findOne({ _id: zone });
         let cells = await Cell.findOne({ _id: cell });
-
-        let first = await Admin.findOne({ email });
-
-
-
-        if (first) {
-            res.status(400).json({
-                status: 400,
-                error: 'Email already exist'
-            })
-            return;
-        }
  
         if (!zones) {
             res.status(400).json({
@@ -40,6 +25,7 @@ const createFirstTimers = async (req, res) => {
             return;
         }
 
+
         if (!cells) {
             res.status(400).json({
                 status: 400,
@@ -47,31 +33,18 @@ const createFirstTimers = async (req, res) => {
             })
             return;
         }
-
-
+      
        let superAdmin = new Admin({
             name, 
-            address, 
-            email, 
-            age_range, 
-            bad_comment, 
-            category,  
-            education_level, 
-            gender, 
-            phone, 
-            prayer_request, 
-            date_of_first_visit,
-            date_of_birth,
+            address,
+            date_of_new_convert,
+            phone,
             cell, 
             cell_name: cells.cell_name, 
             zone,
             zone_name: zones.zone_name
         });
-
         await superAdmin.save();
-
-
-
         res.status(201).json({
             status: 201,
             success: true,
@@ -85,4 +58,4 @@ const createFirstTimers = async (req, res) => {
         })
     }
 }
-export default createFirstTimers;
+export default createConvert;

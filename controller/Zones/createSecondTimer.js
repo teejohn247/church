@@ -1,8 +1,6 @@
 
 import dotenv from 'dotenv';
-import Admin from '../../model/FirstTimers';
-import bcrypt from 'bcrypt';
-import utils from '../../config/utils';
+import Admin from '../../model/SecondTimers';
 import Cell from '../../model/Cell';
 import Zone from '../../model/Zones';
 
@@ -10,15 +8,15 @@ import Zone from '../../model/Zones';
 dotenv.config();
 
 
-const createFirstTimers = async (req, res) => {
+const createSecondTimers = async (req, res) => {
 
     try {
 
-        const { name, address, email, age_range, bad_comment, date_of_first_visit, category,  education_level, gender, phone, prayer_request, date_of_birth
-        , cell, zone } = req.body;
+        const { name, address, email, gender, phone, cell, zone } = req.body;
 
         let zones = await Zone.findOne({ _id: zone });
         let cells = await Cell.findOne({ _id: cell });
+
 
         let first = await Admin.findOne({ email });
 
@@ -51,17 +49,10 @@ const createFirstTimers = async (req, res) => {
 
        let superAdmin = new Admin({
             name, 
-            address, 
+            address,
             email, 
-            age_range, 
-            bad_comment, 
-            category,  
-            education_level, 
             gender, 
-            phone, 
-            prayer_request, 
-            date_of_first_visit,
-            date_of_birth,
+            phone,
             cell, 
             cell_name: cells.cell_name, 
             zone,
@@ -85,4 +76,4 @@ const createFirstTimers = async (req, res) => {
         })
     }
 }
-export default createFirstTimers;
+export default createSecondTimers;

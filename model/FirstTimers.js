@@ -16,6 +16,7 @@ const FirstTimersSchema = new mongoose.Schema({
     date_of_birth: { type: String},
     cell: { type: String},
     cellName: { type: String},
+    date_of_first_visit:{ type: String},
     zone: { type: String},
     zoneName: { type: String},
     attendance: { type: Number, default: 1},
