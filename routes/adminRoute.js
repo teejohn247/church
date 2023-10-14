@@ -25,6 +25,7 @@ import fetchConvert from '../controller/Zones/fetchConverts';
 import fetchConvertDetails from '../controller/Zones/fetchConvertDetails';
 import deleteConverts from '../controller/Zones/deleteConverts';
 import updateConvert from '../controller/Zones/updateConverts';
+import fetchAll from '../controller/Zones/fetchAll';
 
 
 const { userValidationRules, validate } = require('../middleware/signUpValidation')
@@ -51,6 +52,8 @@ router.delete('/deleteZone/:id', deleteZone);
 router.delete('/deleteCell/:id', deleteCells);
 router.get('/getSecondTimers/:id', fetchSecondTimersDetails);
 router.get('/getConverts', fetchConvert);
+router.get('/getAll', fetchAll);
+
 router.get('/getConverts/:id', fetchConvertDetails);
 router.patch('/updateConvert/:id', updateConvert);
 
