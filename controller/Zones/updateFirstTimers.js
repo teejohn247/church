@@ -59,8 +59,10 @@ const updateFirstTimers = async (req, res) => {
             phone: phone && phone, 
             prayer_request: prayer_request && prayer_request, 
             date_of_birth: date_of_birth && date_of_birth,
-            cell: cell && cells.zone_name, 
-            zone: zone && zones.zone_name,
+            cell: cell && cell, 
+            zone: zone && zone,
+            cell_name: cell && cells.zone_name, 
+            zone_name: zone && zones.zone_name,
             date_of_first_visit: date_of_first_visit && date_of_first_visit
         
         });
