@@ -20,6 +20,8 @@ const createFirstTimers = async (req, res) => {
         let zones = await Zone.findOne({ _id: zone });
         let cells = await Cell.findOne({ _id: cell });
 
+        console.log(cells)
+
         let first = await Admin.findOne({ email });
 
 
@@ -63,7 +65,7 @@ const createFirstTimers = async (req, res) => {
             date_of_first_visit,
             date_of_birth,
             cell, 
-            cell_name: cells.cell_name, 
+            cell_name: cells.cell_leader_name, 
             zone,
             zone_name: zones.zone_name
         });

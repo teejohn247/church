@@ -53,7 +53,7 @@ const updateSecondTimers = async (req, res) => {
             email: email && email, 
             phone: phone && phone, 
             gender: gender && gender,
-            cell: cell && cells.zone_name, 
+            cell: cell && cells.cell_leader_name, 
             zone: zone && zones.zone_name
         
         });

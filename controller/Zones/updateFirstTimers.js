@@ -61,9 +61,10 @@ const updateFirstTimers = async (req, res) => {
             date_of_birth: date_of_birth && date_of_birth,
             cell: cell && cell, 
             zone: zone && zone,
-            cell_name: cell && cells.zone_name, 
+            cell_name: cell && cells.cell_leader_name, 
             zone_name: zone && zones.zone_name,
             date_of_first_visit: date_of_first_visit && date_of_first_visit
+
         
         });
         res.status(201).json({

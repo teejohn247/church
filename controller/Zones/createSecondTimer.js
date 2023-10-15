@@ -54,7 +54,7 @@ const createSecondTimers = async (req, res) => {
             gender, 
             phone,
             cell, 
-            cell_name: cells.cell_name, 
+            cell_name: cells.cell_leader_name, 
             zone,
             zone_name: zones.zone_name
         });
