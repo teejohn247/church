@@ -8,9 +8,9 @@ const SecondTimersSchema = new mongoose.Schema({
     category: { type: Array },
     date_of_second_visit: { type: Date, default: Date.now()},
     cell: { type: String},
-    cellName: { type: String},
+    cell_name: { type: String},
     zone: { type: String},
-    zoneName: { type: String},
+    zone_name: { type: String},
     attendanceNumber: { type: Number, default: 2},
 }, { timestamps: true }); 
 

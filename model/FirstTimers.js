@@ -15,10 +15,10 @@ const FirstTimersSchema = new mongoose.Schema({
     prayer_request: { type: String},
     date_of_birth: { type: String},
     cell: { type: String},
-    cellName: { type: String},
+    cell_name: { type: String},
     date_of_first_visit:{ type: String},
     zone: { type: String},
-    zoneName: { type: String},
+    zone_name: { type: String},
     attendance: { type: Number, default: 1},
 }, { timestamps: true }); 
 
